@@ -252,3 +252,64 @@ h1 em{color:transparent;background:linear-gradient(100deg,var(--ac) 0 42%,#f6ffd
 .cf .row{align-items:center;gap:16px}
 .cf .row .small{margin:0}
 @media(min-width:900px){.cta-box{grid-template-columns:1fr 1fr;gap:56px;padding:56px}}
+
+/* ===== Блок Проєкти (Портфоліо) ===== */
+.sec-head{margin-bottom:2rem}
+.sec-head h2{margin-bottom:.5rem}
+.sec-desc{color:var(--mut);font-size:1.05rem;max-width:55ch}
+.projects-grid{display:grid;gap:28px;grid-template-columns:1fr;list-style:none;padding:0}
+@media(min-width:720px){.projects-grid{grid-template-columns:repeat(2,1fr)}}
+
+.project-card{display:flex;flex-direction:column;padding:20px;border-radius:var(--r);background:var(--card);border:1px solid var(--line);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.project-card:hover{transform:translateY(-4px);border-color:rgba(200,255,61,.45);box-shadow:0 20px 40px -15px rgba(0,0,0,.6),0 0 25px -10px rgba(200,255,61,.18)}
+.project-media-link{display:block;text-decoration:none;color:inherit;border-radius:14px}
+
+/* Імітація вікна браузера */
+.project-browser{border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:#14141A;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.project-browser-bar{display:flex;align-items:center;padding:10px 14px;background:#191922;border-bottom:1px solid rgba(255,255,255,.06)}
+.project-browser-dots{display:flex;gap:6px;align-items:center}
+.project-browser-dots i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.project-browser-dots .dot-red{background:#FF5F56}
+.project-browser-dots .dot-yellow{background:#FFBD2E}
+.project-browser-dots .dot-green{background:#27C93F}
+.project-browser-url{font-family:var(--fb);font-size:.75rem;color:var(--mut);margin-left:12px;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(100% - 70px)}
+
+/* Область зображення */
+.project-thumb{position:relative;width:100%;aspect-ratio:16/10;overflow:hidden;background:#0D0D12}
+.project-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.project-card:hover .project-img{transform:scale(1.04)}
+
+/* Оверлей при наведенні */
+.project-overlay{position:absolute;inset:0;background:rgba(8,8,12,.55);backdrop-filter:blur(2px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s ease}
+.project-card:hover .project-overlay{opacity:1}
+.project-overlay-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:999px;background:var(--ac);color:var(--on-ac);font:800 .85rem var(--fh);box-shadow:0 8px 24px -4px rgba(200,255,61,.5);transform:translateY(6px);transition:transform .25s ease}
+.project-card:hover .project-overlay-btn{transform:translateY(0)}
+
+/* Заглушка, якщо фото немає або помилка завантаження */
+.project-fallback-box{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:radial-gradient(circle at 50% 40%,#1f202b 0%,#0d0d12 100%);color:var(--mut);padding:20px;text-align:center}
+.project-fallback-icon{font-size:1.8rem;color:var(--ac)}
+.project-fallback-box span:last-child{font-family:var(--fh);font-size:.95rem;font-weight:700;color:var(--tx)}
+
+/* Контентна частина картки */
+.project-content{display:flex;flex-direction:column;flex-grow:1;padding-top:18px}
+.project-head{min-height:24px;margin-bottom:8px}
+.project-badge{display:inline-block;font:600 .75rem var(--fb);letter-spacing:.02em;border-radius:999px;padding:3px 10px;background:rgba(200,255,61,.12);color:var(--ac);border:1px solid rgba(200,255,61,.28)}
+.project-title{font-size:1.25rem;font-family:var(--fh);font-weight:800;line-height:1.3;color:var(--tx);margin-bottom:8px}
+.project-title a{color:inherit;text-decoration:none;transition:color .2s}
+.project-title a:hover{color:var(--ac)}
+.project-desc{color:var(--mut);font-size:.92rem;line-height:1.55;margin-bottom:16px;flex-grow:1}
+
+/* Теги технологій */
+.project-tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin-bottom:20px}
+.project-tags li{font-size:.75rem;font-weight:500;color:var(--mut);background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:999px;padding:3px 10px;transition:border-color .2s,color .2s}
+.project-card:hover .project-tags li{border-color:rgba(255,255,255,.18);color:var(--tx)}
+
+/* Нижні кнопки дій */
+.project-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:14px;border-top:1px solid var(--line);margin-top:auto}
+.project-action-link{display:inline-flex;align-items:center;gap:6px;font:700 .95rem var(--fh);color:var(--ac);text-decoration:none;transition:gap .2s ease}
+.project-action-link svg{transition:transform .2s ease}
+.project-action-link:hover svg{transform:translate(3px,-3px)}
+.project-action-static{font:700 .95rem var(--fh);color:var(--mut)}
+.project-gh-link{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;color:var(--mut);text-decoration:none;padding:4px 8px;border-radius:6px;transition:color .2s ease,background .2s ease}
+.project-gh-link:hover{color:var(--tx);background:rgba(255,255,255,.05)}
+.projects-empty{color:var(--mut);font-size:1rem;grid-column:1/-1;text-align:center;padding:40px 0}
